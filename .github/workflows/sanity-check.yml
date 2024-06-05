@@ -16,3 +16,4 @@ jobs:
           OWNER: ChristopheClermont
           REPO: metricshub
           BRANCH: ${{ github.event.head_branch }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
