@@ -12,7 +12,7 @@ jobs:
     name: Performs sanity test on MetricsHub archive on Debian
     steps:
       - name: print debug
-        run: echo ${{ github.event }}
+        run: echo ${{ JSON.stringify(github.event) }}
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
