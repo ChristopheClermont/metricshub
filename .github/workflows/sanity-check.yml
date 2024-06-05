@@ -11,14 +11,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Performs sanity test on MetricsHub archive on Debian
     steps:
-      - name: print debug
-        run: echo "${{ toJson(github.event) }}"
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          github-token: ${{ secrets.GH_PAT }}
-          repository: ChristopheClermont/metricshub
-          run-id: ${{ github.event.workflow_run.id }}
-          pattern: metricshub-linux-package-*
-          path: build-output
       - uses: ChristopheClermont/metricshub-sanity-action@main
+        with:
+          OWNER: ChristopheClermont
+          REPO: metricshub
+          BRANCH: ${{ github.event.head_branch }}
